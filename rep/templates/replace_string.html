@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Replace strings</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<style>
+		.label_type{
+			font-size: 25px;
+			font-family: times new roman;
+			/*margin-left: 45px;*/	
+			font-weight: bolder;
+			color: orange;	
+		}
+		.vl {
+			  border-right: 4px solid black;
+			  height:max-content;
+			  margin-right: 20px;
+			}
+
+		.desc{
+			border: 1px solid black;
+			 background-color: black;
+			 color: orange;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<br>
+	<div class="top" style="display: flex;justify-content:space-around; ">
+		
+			<div class="heading">
+			<h1 style="font-weight: bolder; font-family: serif;">MyReplacer</h1>
+			
+			</div>
+
+			<div class="desc" style="">
+
+				<p style="font-family: serif;"><i class="material-icons">announcement</i>This website is used to replace a word with another <br>word of your choice, wherever it's found in the paragraph</p>
+			</div>
+
+	</div>
+	<br>
+	<br>
+	<div class="container" style="background-color:black;">
+		<div class="row">
+
+	
+				<div class="col-md-6">
+					<br>
+				<div class="vl">
+
+				<form action="/home/" method="POST" >
+				{% csrf_token %}
+ 				<label class="label_type">What do you wish to do?</label>
+ 				<input type="text" class="form-control" name="title">
+ 					<br>
+				<label class="label_type">Type the paragraph</label>
+				<textarea class="form-control" name="paragraph"></textarea>
+					<br>
+				<label class="label_type">String to be replaced</label>
+				<input type="text" class="form-control" name="substring_to_be_replaced">
+				<br>
+				<label class="label_type">String must be replaced as</label>
+				<input type="text" class="form-control" name="replace_word">
+				<br>
+					
+			<button class="btn btn-warning" type="submit">See the results</button>
+				</form>
+			</div>
+			</div>
+	
+		
+		<div class="col-md-6"> 
+           
+			<h4 class="label_type" style="margin: 20px;">Regenerated paragraph</h4>
+			
+			   <p style="margin: 20px; width: 400px; height: max-content; padding: 10px;" class="form-control">{{para.new_para}}</p>
+			   
+		</div>
+
+
+	</div>
+	</div>
+	
+</body>
+</html>
